@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AuthState from './Route/AuthState';
+import AuthState from './ContextAuth/AuthState';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

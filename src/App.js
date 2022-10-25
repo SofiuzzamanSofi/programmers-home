@@ -1,7 +1,8 @@
 import { BeakerIcon } from '@heroicons/react/24/solid'
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import router from './Route/router';
+import router from './Route/router/router';
+
 
 
 
