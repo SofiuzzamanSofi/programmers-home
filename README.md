@@ -2,8 +2,8 @@
  # programmers-home
 
 
-## live site - 
- [https://programmers-home.web.app](https://programmers-home.web.app) to view it in your browser.
+## live site link- 
+ [https://programmers-home.web.app](https://programmers-home.web.app) 
 
 
 ### About This site-
@@ -15,3 +15,8 @@
 <li>Personal Notes and Sharing</li>
 <li>Touched all other programming language based you need.</li>
 </ul>
+
+
+
+## live site api link from vercel- 
+ [https://programmers-home-server-sofiuzzamansofi.vercel.app/](https://programmers-home-server-sofiuzzamansofi.vercel.app/) 
