@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             { path: 'language', element: <Courses />, loader: languageFn },
             { path: 'framework', element: <Courses />, loader: frameworkFn },
             { path: 'profile', element: <ProfilePage />, loader: frameworkFn },
-            { path: 'checkout', element: <CheckOutPage />, loader: frameworkFn },
+            { path: 'checkout/:id', element: <CheckOutPage />, loader: frameworkFn },
 
         ])
     }

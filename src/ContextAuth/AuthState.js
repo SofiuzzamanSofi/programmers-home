@@ -17,65 +17,25 @@ const AuthState = ({ children }) => {
     console.log(user);
 
 
-    const createNewUser = (name, photo, email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                // ...
-                updateProfile(auth.currentUser, { displayName: name, photoURL: photo })
-                    .then(() => {
-                        // Profile updated!
-                        // ...
-                    }).catch((error) => {
-                        // An error occurred
-                        // ...
-                        setErro(error);
-                    });
-                sendEmailVerification(auth.currentUser)
-                    .then(() => {
-                        // Email verification sent!
-                        // ...
-                    });
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                setErro(errorMessage);
-                // ..
-            });
+    const createNewUser = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
     };
 
+    const updatePro = (name, photo) => {
+        return updateProfile(auth.currentUser, { displayName: name, photoURL: photo })
+    }
+
+    const emailVeryfy = () => {
+        return sendEmailVerification(auth.currentUser);
+    }
+
     const signInLogIn = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                // ...
-                console.log(11);
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                setErro(errorMessage);
-                console.log(22);
-            });
+        return signInWithEmailAndPassword(auth, email, password)
     };
 
 
     const signInPopUp = (provider) => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                // The signed-in user info.
-                const user = result.user;
-            }).catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                setErro(errorMessage);
-            });
+        return signInWithPopup(auth, provider)
     }
 
 
@@ -111,7 +71,7 @@ const AuthState = ({ children }) => {
 
 
 
-    const authInfo = { user, setUser, loader, setLoader, error, setErro, createNewUser, signInLogIn, signInPopUp, signOutLogOut }
+    const authInfo = { user, setUser, loader, setLoader, error, setErro, createNewUser, signInLogIn, signInPopUp, signOutLogOut, updatePro, emailVeryfy }
 
     return (
         <AuthContext.Provider value={authInfo}>
