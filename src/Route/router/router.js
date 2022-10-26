@@ -6,6 +6,8 @@ import CourseDetails from "../../component/InsideHome/CourseDetails/CourseDetail
 import Courses from "../../component/InsideHome/Courses/Courses";
 import FirstLandingPage from "../../component/InsideHome/FirstLandingPage/FirstLandingPage";
 import Home from "../../component/InsideHome/Home/Home";
+import CheckOutPage from "../../component/PrivetPages/CheckOutPage/CheckOutPage";
+import ProfilePage from "../../component/PrivetPages/ProfilePage/ProfilePage";
 import Main from "../../LayoutMain/Main";
 import { categoryDetails, categoryWiseFuction, frameworkFn, languageFn, mainHomeFunction } from "../../LoaderFunction/LoaderFunction";
 import SignInUp from "../../SignInUp/SignInUp";
@@ -23,6 +25,8 @@ const router = createBrowserRouter([
             { path: 'faq', element: <FaqPage /> },
             { path: 'language', element: <Courses />, loader: languageFn },
             { path: 'framework', element: <Courses />, loader: frameworkFn },
+            { path: 'profile', element: <ProfilePage />, loader: frameworkFn },
+            { path: 'checkout', element: <CheckOutPage />, loader: frameworkFn },
 
         ])
     }

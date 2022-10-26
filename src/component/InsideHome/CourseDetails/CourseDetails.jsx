@@ -25,9 +25,12 @@ const CourseDetails = () => {
                         </p>
                     </div>
                 </div>
-                <Link to={`/course/${course.category}`} className="text-center m-auto bg-pink-600 px-4 py-2 rounded-md inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
-                    More In This Category.
-                </Link>
+                <div className=''>
+                    <button className="px-2 py-2 my-2 sm:m-2 text-lg border rounded dark:text-gray-50 dark:border-gray-700 hover:bg-cyan-700"><Link to={`/course/${course.category}`}>More In This Category.</Link></button>
+                    <button className="px-4 py-2 my-2 sm:m-2 text-lg border rounded dark:text-gray-50 dark:border-gray-700 hover:bg-cyan-400"><Link to={`/checkout/${course.id}`}>Get premium access.</Link></button>
+
+
+                </div>
             </div>
         </div>
     );
