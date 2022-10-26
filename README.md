@@ -29,18 +29,18 @@
 
 
 
- ### Category name:  Nav- 
+Category name:  Nav- 
  https://programmers-home-server-sofiuzzamansofi.vercel.app/category
- ### All Courses- 
+All Courses- 
  https://programmers-home-server-sofiuzzamansofi.vercel.app/courses
 
 
- ### Category by popular ( category wise courses ) - 
-https://programmers-home-server-sofiuzzamansofi.vercel.app/course/${category}
- ### Category Details each --
+Category by popular ( category wise courses ) - 
+ https://programmers-home-server-sofiuzzamansofi.vercel.app/course/${category}
+Category Details each --
  https://programmers-home-server-sofiuzzamansofi.vercel.app/course/category/${id}`
 
- ### Category By Language- 
+Category By Language- 
  https://programmers-home-server-sofiuzzamansofi.vercel.app/maincategory/Language
- ### Category By Framework- 
+Category By Framework- 
  https://programmers-home-server-sofiuzzamansofi.vercel.app/maincategory/Framework
