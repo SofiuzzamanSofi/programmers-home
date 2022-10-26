@@ -52,11 +52,13 @@ const AuthState = ({ children }) => {
                 // Signed in 
                 const user = userCredential.user;
                 // ...
+                console.log(11);
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setErro(errorMessage);
+                console.log(22);
             });
     };
 
@@ -79,12 +81,7 @@ const AuthState = ({ children }) => {
 
 
     const signOutLogOut = () => {
-        signOut(auth).then(() => {
-            // Sign-out successful.
-        }).catch((error) => {
-            // An error happened.
-            setErro(error);
-        });
+        return signOut(auth);
     }
 
 
@@ -97,7 +94,12 @@ const AuthState = ({ children }) => {
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 const uid = currentUser.uid;
                 // ...
+                const photoURL = currentUser?.photoURL;
+                if (!photoURL) {
+                    currentUser.photoURL = "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg";
+                }
                 setUser(currentUser);
+                setLoader(!loader);
             } else {
                 // User is signed out
                 // ...

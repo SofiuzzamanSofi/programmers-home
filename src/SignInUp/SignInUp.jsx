@@ -1,6 +1,6 @@
 
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../ContextAuth/AuthState';
 import { GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider } from "firebase/auth";
 
@@ -13,8 +13,12 @@ const githubProvider = new GithubAuthProvider();
 const SignInUp = () => {
 
     const { error, createNewUser, signInLogIn, signInPopUp } = useContext(AuthContext);
+    const error2 = error.replace('(', "");
+    const error3 = error2.replace(')', "");
+    const error4 = error3.replace(/Firebase: Error/gi, "Error: ");
 
     const location = useLocation();
+    const navigate = useNavigate();
 
 
 
@@ -75,7 +79,7 @@ const SignInUp = () => {
                             <>
                                 <div>
                                     <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pls Inter Your Full Name</label>
-                                    <input type="text" name="name" id="name" placeholder="Full Name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+                                    <input type="text" name="name" id="name" placeholder="Full Name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
                                 </div>
                                 <div>
                                     <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pls Inter Photo URL</label>
@@ -90,7 +94,7 @@ const SignInUp = () => {
                     <div>
                         <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
                         <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
-                        <p className='text-xs text-red-700'>{error}</p>
+                        <p className='text-xs text-red-700'>{error4}</p>
                     </div>
 
 

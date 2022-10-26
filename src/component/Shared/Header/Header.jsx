@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import img from "../../../assect/ic.png"
+import { AuthContext } from '../../../ContextAuth/AuthState';
 
 const Header = () => {
 
-
+    const { user, signOutLogOut, setErro } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();
 
-
+    const handleLogOut = () => {
+        signOutLogOut()
+            .then(() => {
+                // Sign-out successful.
+                navigate('/')
+            }).catch((error) => {
+                // An error happened.
+                setErro(error);
+            });
+    }
 
 
 
@@ -57,11 +68,30 @@ const Header = () => {
                             </button>
                         </li>
 
-                        <li>
-                            <Link to="/signin" aria-label="Sign up" title="Sign up" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
-                                Sign In
-                            </Link>
-                        </li>
+
+
+                        {user ?
+                            <>
+                                <li>
+                                    <Link to="" onClick={handleLogOut} aria-label="Our product" title="Log Out" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                                        Log Out
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/profile" aria-label="Sign up" title={user?.displayName ? user?.displayName : "No name found"} className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+                                        <img className='w-9 h-9 rounded-full' src={user?.photoURL} alt="" />
+                                    </Link>
+                                </li>
+                            </>
+                            :
+                            <li>
+                                <Link to="/signin" aria-label="Sign up" title="Sign up" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+                                    Sign In
+                                </Link>
+                            </li>
+
+                        }
+
                     </ul>
                     <div className="lg:hidden">
                         <button

@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Course = ({ course }) => {
 
-
+    console.log(course);
 
 
     return (
@@ -14,6 +14,10 @@ const Course = ({ course }) => {
                         <img className='w-[300px] h-[169px] ' src={course?.img} alt="" />
                     </div>
                     <div className="lg:w-1/2">
+
+                        <p className="my-4 text-base font-bold text-4xl text-yellow-300">
+                            {course.name}
+                        </p>
                         <p className="mb-4 text-base" title={course?.details}>
                             {course?.details.length > 250 ? course?.details.slice(0, 250) + ('...') : course?.details}
                         </p>
