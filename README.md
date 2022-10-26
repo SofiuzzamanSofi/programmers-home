@@ -18,5 +18,29 @@
 
 
 
+
+
+
 ## live site api link from vercel- 
  [https://programmers-home-server-sofiuzzamansofi.vercel.app/](https://programmers-home-server-sofiuzzamansofi.vercel.app/) 
+
+
+
+
+
+
+ ### Category name:  Nav- 
+ https://programmers-home-server-sofiuzzamansofi.vercel.app/category
+ ### All Courses- 
+ https://programmers-home-server-sofiuzzamansofi.vercel.app/courses
+
+
+ ### Category by popular ( category wise courses ) - 
+https://programmers-home-server-sofiuzzamansofi.vercel.app/course/${category}
+ ### Category Details each --
+ https://programmers-home-server-sofiuzzamansofi.vercel.app/course/category/${id}`
+
+ ### Category By Language- 
+ https://programmers-home-server-sofiuzzamansofi.vercel.app/maincategory/Language
+ ### Category By Framework- 
+ https://programmers-home-server-sofiuzzamansofi.vercel.app/maincategory/Framework

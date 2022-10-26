@@ -1,6 +1,3 @@
-
-
-
 const mainHomeFunction = async () => {
     const res = await fetch('https://programmers-home-server-sofiuzzamansofi.vercel.app/courses');
     const data = await res.json();
@@ -22,4 +19,16 @@ const categoryDetails = async (id) => {
 }
 
 
-export { mainHomeFunction, categoryWiseFuction, categoryDetails };
+const languageFn = async () => {
+    const res = await fetch(`https://programmers-home-server-sofiuzzamansofi.vercel.app/maincategory/Language`);
+    const data = await res.json();
+    return data;
+}
+
+const frameworkFn = async (id) => {
+    const res = await fetch(`https://programmers-home-server-sofiuzzamansofi.vercel.app/maincategory/Framework`);
+    const data = await res.json();
+    return data;
+}
+
+export { mainHomeFunction, categoryWiseFuction, categoryDetails, languageFn, frameworkFn };

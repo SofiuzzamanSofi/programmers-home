@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import './LeftSideNav.css'
+import './Left.modules.css'
 
 
 
@@ -25,8 +25,8 @@ const LeftSideNav = () => {
 
 
     return (
-        <ul className=" bg-base-100  pt-10 pb-1 pl-4 md:pr-1 pr-4 sticky top-[88px]">
-            <p className='text-2xl bg-slate-900 p-4 rounded hover:text-amber-300'>Category</p>
+        <ul className=" bg-base-100  pt-10 pb-1 pl-4 md:pr-1 pr-4 sticky top-[88px] text-white 2xl:pb-[155px]">
+            <p className='text-2xl bg-yellow-300 text-black p-4 rounded hover:text-cyan-600'>Category</p>
             {
                 categories.map(category => <li key={category.category} className="bg-slate-600 p-4 my-4  rounded hover:bg-amber-300 hover:text-black hover:cursor-pointer">
                     <NavLink to={`/course/${category.category}`} >{category.name}</NavLink>

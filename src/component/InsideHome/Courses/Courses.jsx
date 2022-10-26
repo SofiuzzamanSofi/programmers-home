@@ -2,6 +2,8 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Course from '../Course/Course';
 
+
+
 const Courses = () => {
 
     const courses = useLoaderData();
