@@ -1,3 +1,5 @@
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
@@ -6,15 +8,18 @@ const CourseDetails = () => {
     const course = useLoaderData();
 
     const handleDownLoadPdf = (event) => {
-        var link = document.createElement(event);
-        link.href = event.this;
-        link.download = 'file.pdf';
-        link.dispatchEvent(new MouseEvent('click'));
+        html2canvas(document.querySelector("#htmltopdf")).then(canvas => {
+            document.body.appendChild(canvas);  // if you want see your screenshot in body.
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'pt', 'a4', false);
+            pdf.addImage(imgData, 'PNG', 0, 0, 600, 0, undefined, false);
+            pdf.save("download.pdf");
+        });
     }
 
 
     return (
-        <div className="p-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8   ">
+        <div className="p-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8" id='htmltopdf'>
             <div className="p-8 rounded shadow-xl sm:p-16 bg-slate-600 text-white rounded-lg text-center">
                 <div className="flex items-center justify-between bg-slate-500 p-4 mb-4 rounded text-base font-bold text-4xl text-yellow-300">
                     <p>{course.name}</p>

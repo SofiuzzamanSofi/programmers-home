@@ -14,7 +14,7 @@ const AuthState = ({ children }) => {
     let [user, setUser] = useState(null);
     let [loader, setLoader] = useState(true);
     let [error, setErro] = useState("");
-    console.log(user);
+
 
 
     const createNewUser = (email, password) => {
