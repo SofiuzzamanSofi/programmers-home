@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             { path: 'language', element: <Language></Language>, loader: languageFn },
             { path: 'framework', element: <Framework></Framework>, loader: frameworkFn },
             { path: 'profile', element: <PrivetRoute><ProfilePage /></PrivetRoute> },
-            { path: 'checkout/:id', element: <PrivetRoute><CheckOutPage /></PrivetRoute>, loader: frameworkFn },
+            { path: 'checkout/:id', element: <PrivetRoute><CheckOutPage /></PrivetRoute>, loader: ({ params }) => categoryDetails(params.id) },
 
         ])
     }
