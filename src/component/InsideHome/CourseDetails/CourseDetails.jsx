@@ -5,6 +5,12 @@ const CourseDetails = () => {
 
     const course = useLoaderData();
 
+    const handleDownLoadPdf = (event) => {
+        var link = document.createElement(event);
+        link.href = event.this;
+        link.download = 'file.pdf';
+        link.dispatchEvent(new MouseEvent('click'));
+    }
 
 
     return (
@@ -12,7 +18,7 @@ const CourseDetails = () => {
             <div className="p-8 rounded shadow-xl sm:p-16 bg-slate-600 text-white rounded-lg text-center">
                 <div className="flex items-center justify-between bg-slate-500 p-4 mb-4 rounded text-base font-bold text-4xl text-yellow-300">
                     <p>{course.name}</p>
-                    <img className='hover:text-green-600 hover:bg-slate-600 hover:rounded-full' src="https://img.icons8.com/ios-glyphs/30/000000/downloads.png" />
+                    <img title='download pdf format' onClick={handleDownLoadPdf} className='hover:cursor-pointer hover:bg-slate-50 hover:rounded-full' src="https://img.icons8.com/ios-glyphs/30/000000/downloads.png" />
                 </div>
                 <div className="flex flex-col lg:flex-row ">
                     <div className=" lg:mb-0 lg:w-1/2 lg:pr-5 m-auto lg:mt-8">
