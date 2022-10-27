@@ -2,8 +2,8 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Courses from '../InsideHome/Courses/Courses';
 
+const CategoryWise = () => {
 
-const Language = () => {
     const courses = useLoaderData();
 
     return (
@@ -13,4 +13,4 @@ const Language = () => {
     );
 };
 
-export default Language;
+export default CategoryWise;

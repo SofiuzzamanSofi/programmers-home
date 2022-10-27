@@ -11,18 +11,19 @@ const auth = getAuth(app);
 
 const AuthState = ({ children }) => {
 
-    const [user, setUser] = useState(null);
-    const [loader, setLoader] = useState(false);
-    const [error, setErro] = useState("");
+    let [user, setUser] = useState(null);
+    let [loader, setLoader] = useState(true);
+    let [error, setErro] = useState("");
     console.log(user);
 
 
     const createNewUser = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password)
+        setLoader(true);
+        return createUserWithEmailAndPassword(auth, email, password);
     };
 
     const updatePro = (name, photo) => {
-        return updateProfile(auth.currentUser, { displayName: name, photoURL: photo })
+        return updateProfile(auth.currentUser, { displayName: name, photoURL: photo });
     }
 
     const emailVeryfy = () => {
@@ -30,17 +31,18 @@ const AuthState = ({ children }) => {
     }
 
     const signInLogIn = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password);
     };
 
 
     const signInPopUp = (provider) => {
-        return signInWithPopup(auth, provider)
+        return signInWithPopup(auth, provider);
     }
 
 
 
     const signOutLogOut = () => {
+        setLoader(true);
         return signOut(auth);
     }
 
@@ -50,19 +52,14 @@ const AuthState = ({ children }) => {
     useEffect(() => {
         const unSubsCribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
-                const uid = currentUser.uid;
-                // ...
-                const photoURL = currentUser?.photoURL;
-                if (!photoURL) {
-                    currentUser.photoURL = "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg";
-                }
+                // const photoURL = currentUser?.photoURL;
+                // if (!photoURL) {
+                //     currentUser.photoURL = "https://image.shutterstock.com/image-vector/photo-coming-soon-missing-image-260nw-2146264143.jpg";
+                // }
                 setUser(currentUser);
-                setLoader(!loader);
+                setLoader(false);
             } else {
                 // User is signed out
-                // ...
             }
         });
 

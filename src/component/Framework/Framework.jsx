@@ -1,11 +1,20 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Courses from '../InsideHome/Courses/Courses';
+
+
+
+
 
 const Framework = () => {
+    const courses = useLoaderData();
+
     return (
         <div>
-            <h1>This is framewordk</h1>
+            <Courses courses={courses} />
         </div>
     );
+
 };
 
 export default Framework;

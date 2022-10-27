@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../ContextAuth/AuthState';
 import { GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider, updateProfile, sendEmailVerification } from "firebase/auth";
+import toast from 'react-hot-toast';
 
 
 const googleProvider = new GoogleAuthProvider();
@@ -19,6 +20,7 @@ const SignInUp = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/';
 
 
 
@@ -35,8 +37,8 @@ const SignInUp = () => {
         if (location.pathname === "/signin") {
             signInLogIn(email, password)
                 .then((userCredential) => {
-                    navigate('/')
                     form.reset();
+                    navigate(from, { replace: true });
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -45,32 +47,39 @@ const SignInUp = () => {
                 });
         }
         else (
-            createNewUser(name, photo, email, password)
+            createNewUser(email, password)
                 .then((userCredential) => {
                     const user = userCredential.user;
+                    console.log("user create")
                     updatePro(name, photo)
                         .then(() => {
                             // Profile updated!
                             // ...
+                            console.log("update profile")
                         }).catch((error) => {
                             // An error occurred
                             // ...
+                            console.log("update profile: error")
                         });
                     emailVeryfy()
                         .then((userCredential) => {
-                            navigate('/')
+                            toast.success("Pls check your Email to veryfy. If not found pls check spam folder.")
                             form.reset();
+                            navigate(from, { replace: true });
+                            console.log("email verify");
                         })
                         .catch((error) => {
                             const errorCode = error.code;
                             const errorMessage = error.message;
                             setErro(errorMessage);
+                            console.log("email verify: error")
                         });
 
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    console.log("user create: error")
                 })
         );
     }
@@ -80,7 +89,7 @@ const SignInUp = () => {
     const handlePopUpGoogle = (provider) => {
         signInPopUp(provider)
             .then((result) => {
-                navigate('/')
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 const errorCode = error.code;
