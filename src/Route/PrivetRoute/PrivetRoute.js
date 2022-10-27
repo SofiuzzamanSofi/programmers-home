@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../ContextAuth/AuthState';
 
 const PrivetRoute = ({ children }) => {
 
     const { user, loader } = useContext(AuthContext);
-    const location = useLocation();
+    let location = useLocation();
 
 
 
@@ -17,14 +17,17 @@ const PrivetRoute = ({ children }) => {
                 <div className="w-full h-6 rounded dark:bg-gray-700"></div>
                 <div className="w-full h-6 rounded dark:bg-gray-700"></div>
                 <div className="w-3/4 h-6 rounded dark:bg-gray-700"></div>
+                <div>
+                    Logign Access Denied, Pls Go to login page <button className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900"><Link to='/signin'>Log In</Link></button>
+                </div>
             </div>
         </div>
     }
-    if (user?.uid) {
-        return children;
+    if (!user) {
+        return <Navigate to="/signin" state={{ from: location }} ></Navigate>
     }
+    return children;
 
-    return <Navigate to="/signin" state={{ from: location }} ></Navigate>
 
 
 };

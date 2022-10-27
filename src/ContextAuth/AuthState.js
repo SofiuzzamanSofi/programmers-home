@@ -31,11 +31,13 @@ const AuthState = ({ children }) => {
     }
 
     const signInLogIn = (email, password) => {
+        setLoader(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
 
 
     const signInPopUp = (provider) => {
+        setLoader(true);
         return signInWithPopup(auth, provider);
     }
 
@@ -51,18 +53,13 @@ const AuthState = ({ children }) => {
 
     useEffect(() => {
         const unSubsCribe = onAuthStateChanged(auth, (currentUser) => {
-            if (currentUser) {
-                // const photoURL = currentUser?.photoURL;
-                // if (!photoURL) {
-                //     currentUser.photoURL = "https://image.shutterstock.com/image-vector/photo-coming-soon-missing-image-260nw-2146264143.jpg";
-                // }
-                setUser(currentUser);
-                setLoader(false);
-            } else {
-                // User is signed out
-            }
+            // const photoURL = currentUser?.photoURL;
+            // if (!photoURL) {
+            //     currentUser.photoURL = "https://image.shutterstock.com/image-vector/photo-coming-soon-missing-image-260nw-2146264143.jpg";
+            // }
+            setUser(currentUser);
+            setLoader(false);
         });
-
         return () => unSubsCribe();
     }, [])
 
