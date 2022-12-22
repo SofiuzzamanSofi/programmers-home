@@ -40,29 +40,29 @@ const Header = () => {
                             Programmers-Home
                         </span>
                     </Link>
-                    <ul className="flex items-center hidden space-x-8 lg:flex">
+                    <ul className="items-center hidden space-x-2 lg:flex">
                         <li>
-                            <NavLink to="/home" aria-label="Our product" title="Courses" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                            <NavLink to="/home" aria-label="Our product" title="Courses" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                 Courses
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/language" aria-label="Our product" title="Language" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                            <NavLink to="/language" aria-label="Our product" title="Language" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                 Language
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/framework" aria-label="Our product" title="Framework" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                            <NavLink to="/framework" aria-label="Our product" title="Framework" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                 Framework
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/faq" aria-label="Our product" title="FAQ" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                            <NavLink to="/faq" aria-label="Our product" title="FAQ" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                 FAQ
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/blog" aria-label="Our product" title="Blog" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                            <NavLink to="/blog" aria-label="Our product" title="Blog" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                 Blog
                             </NavLink>
                         </li>
@@ -86,7 +86,7 @@ const Header = () => {
                         {user ?
                             <>
                                 <li>
-                                    <Link to="" onClick={handleLogOut} aria-label="Our product" title="Log Out" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                                    <Link to="" onClick={handleLogOut} aria-label="Our product" title="Log Out" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                         Log Out
                                     </Link>
                                 </li>
@@ -98,7 +98,7 @@ const Header = () => {
                             </>
                             :
                             <li>
-                                <Link to="/signin" aria-label="Sign up" title="Sign up" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+                                <Link to="/signin" aria-label="Sign up" title="Sign in" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none hover:bg-[#faca15] hover:text-black">
                                     Sign In
                                 </Link>
                             </li>
@@ -164,27 +164,27 @@ const Header = () => {
                                     <nav>
                                         <ul className="space-y-4">
                                             <li>
-                                                <NavLink to="/home" aria-label="Our product" title="Courses" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                                                <NavLink to="/home" aria-label="Our product" title="Courses" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                                     Courses
                                                 </NavLink>
                                             </li>
                                             <li>
-                                                <NavLink to="/language" aria-label="Our product" title="Language" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                                                <NavLink to="/language" aria-label="Our product" title="Language" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                                     Language
                                                 </NavLink>
                                             </li>
                                             <li>
-                                                <NavLink to="/framework" aria-label="Our product" title="Framework" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                                                <NavLink to="/framework" aria-label="Our product" title="Framework" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                                     Framework
                                                 </NavLink>
                                             </li>
                                             <li>
-                                                <NavLink to="/faq" aria-label="Our product" title="FAQ" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                                                <NavLink to="/faq" aria-label="Our product" title="FAQ" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                                     FAQ
                                                 </NavLink>
                                             </li>
                                             <li>
-                                                <NavLink to="/blog" aria-label="Our product" title="Blog" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                                                <NavLink to="/blog" aria-label="Our product" title="Blog" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                                     Blog
                                                 </NavLink>
                                             </li>
@@ -208,7 +208,7 @@ const Header = () => {
                                             {user ?
                                                 <>
                                                     <li>
-                                                        <Link to="" onClick={handleLogOut} aria-label="Our product" title="Log Out" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
+                                                        <Link to="" onClick={handleLogOut} aria-label="Our product" title="Log Out" className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:bg-[#faca15] hover:text-black   px-[11px] py-[13px] rounded-md">
                                                             Log Out
                                                         </Link>
                                                     </li>
@@ -220,7 +220,7 @@ const Header = () => {
                                                 </>
                                                 :
                                                 <li>
-                                                    <Link to="/signin" aria-label="Sign up" title="Sign up" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+                                                    <Link to="/signin" aria-label="Sign in" title="Sign up" className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none hover:bg-[#faca15]">
                                                         Sign In
                                                     </Link>
                                                 </li>
